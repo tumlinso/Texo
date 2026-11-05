@@ -1,0 +1,20 @@
+#pragma once
+
+#include <Texo/ir/realization/commit_selected_exact_cover_and_contribution_ownership_v1.hh>
+#include <Texo/ir/realization/selected_plan_to_prepared_program_slice_v1.hh>
+#include <Texo/ir/realization/realization_ir_module_and_target_scopes_v1.hh>
+#include <Texo/ir/realization/atom_and_extent_bindings_v1.hh>
+#include <Texo/ir/realization/generation_readiness_and_publication_v1.hh>
+#include <Texo/ir/realization/graph_capture_and_rebind_contracts_v1.hh>
+#include <Texo/ir/realization/launch_and_synchronization_dependencies_v1.hh>
+#include <Texo/ir/realization/lowering_resumption_checkpoints_v1.hh>
+#include <Texo/ir/realization/memory_workspace_and_residency_requirements_v1.hh>
+#include <Texo/ir/realization/order_transforms_and_persistent_physical_order_v1.hh>
+#include <Texo/ir/realization/packed_operands_and_invalidation_v1.hh>
+#include <Texo/ir/realization/physical_plane_representation_v1.hh>
+#include <Texo/ir/realization/prepared_stage_graphs_v1.hh>
+#include <Texo/ir/realization/projection_contracts_v1.hh>
+#include <Texo/ir/realization/realization_ir_text_parser_printer_v1.hh>
+#include <Texo/ir/realization/realization_ir_validators_and_referees_v1.hh>
+#include <Texo/ir/realization/symbolic_runtime_bindings_v1.hh>
+#include <Texo/ir/realization/target_and_capability_descriptions_v1.hh>

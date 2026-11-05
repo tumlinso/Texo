@@ -1,0 +1,17 @@
+#pragma once
+#include <Texo/reflection/identity_and_generation_behavior_under_inline_ir_v1.hh>
+#include <Texo/reflection/source_defined_inline_rewrite_v1.hh>
+#include <Texo/reflection/reflection_diagnostics_v1.hh>
+#include <Texo/reflection/compile_time_ir_handle_model_v1.hh>
+#include <Texo/reflection/compile_time_texo_ir_builders_v1.hh>
+#include <Texo/reflection/inline_planning_ir_blocks_v1.hh>
+#include <Texo/reflection/inline_realization_ir_blocks_v1.hh>
+#include <Texo/reflection/inline_semantic_ir_blocks_v1.hh>
+#include <Texo/reflection/operation_replacement_and_ir_splicing_v1.hh>
+#include <Texo/reflection/execution_field_reflection_v1.hh>
+#include <Texo/reflection/reflection_of_operations_and_relations_v1.hh>
+#include <Texo/reflection/reflection_of_planning_ir_search_spaces_v1.hh>
+#include <Texo/reflection/reflection_of_profile_environments_v1.hh>
+#include <Texo/reflection/reflection_of_realization_ir_v1.hh>
+#include <Texo/reflection/typed_capture_and_result_binding_v1.hh>
+#include <Texo/reflection/integrate_reflection_with_c_templates_and_constant_evalu_v1.hh>

@@ -1,0 +1,5 @@
+#include <Texo/reflection/compile_time_texo_ir_builders_v1.hh>
+namespace texo::reflection::v1 {
+std::uint32_t append_texo_ir_node_v1(texo_ir_builder_v1*b,texo_ir_builder_node_kind_v1 k,const std::string&n,const std::string&p,const std::vector<std::uint32_t>&c){if(!b)return UINT32_MAX;for(auto x:c)if(x>=b->nodes.size()){b->diagnostics.push_back("child index unavailable");return UINT32_MAX;}ir_handle_v1 h{b->arena_epoch,b->next_identity++,b->arena_epoch,1,k==texo_ir_builder_node_kind_v1::planning_alternative?handle_kind_v1::planning_alternative:handle_kind_v1::operation,k==texo_ir_builder_node_kind_v1::planning_alternative?availability_phase_v1::planned:availability_phase_v1::semantic,handle_lifetime_v1::compilation};b->nodes.push_back({h,k,n,p,c});return static_cast<std::uint32_t>(b->nodes.size()-1);}
+bool validate_texo_ir_builder_v1(const texo_ir_builder_v1&b)noexcept{if(!b.arena_epoch)return false;for(std::size_t i=0;i<b.nodes.size();++i){if(b.nodes[i].name.empty())return false;for(auto c:b.nodes[i].children)if(c>=i)return false;}return true;}
+}

@@ -1,0 +1,144 @@
+cmake_minimum_required(VERSION 3.18)
+project(texo_compiler_pass_tests LANGUAGES CXX)
+enable_testing()
+get_filename_component(TEXO_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../../.." ABSOLUTE)
+
+add_executable(texo_pass_pipeline_stage_taxonomy_test
+  pass_pipeline_stage_taxonomy_test.cc
+  ${TEXO_ROOT}/src/compiler/pass/pass_pipeline_stage_taxonomy.cc)
+target_include_directories(texo_pass_pipeline_stage_taxonomy_test PRIVATE ${TEXO_ROOT}/include)
+target_compile_features(texo_pass_pipeline_stage_taxonomy_test PRIVATE cxx_std_20)
+target_compile_options(texo_pass_pipeline_stage_taxonomy_test PRIVATE -Wall -Wextra -Werror)
+add_test(NAME texo_pass_pipeline_stage_taxonomy_test COMMAND texo_pass_pipeline_stage_taxonomy_test)
+
+add_executable(texo_pass_manager_and_analysis_invalidation_test
+  pass_manager_and_analysis_invalidation_test.cc
+  ${TEXO_ROOT}/src/compiler/pass/pass_manager_and_analysis_invalidation.cc
+  ${TEXO_ROOT}/src/compiler/pass/pass_pipeline_stage_taxonomy.cc)
+target_include_directories(texo_pass_manager_and_analysis_invalidation_test PRIVATE ${TEXO_ROOT}/include)
+target_compile_features(texo_pass_manager_and_analysis_invalidation_test PRIVATE cxx_std_20)
+target_compile_options(texo_pass_manager_and_analysis_invalidation_test PRIVATE -Wall -Wextra -Werror)
+add_test(NAME texo_pass_manager_and_analysis_invalidation_test COMMAND texo_pass_manager_and_analysis_invalidation_test)
+
+add_executable(texo_pipeline_configuration_syntax_and_apis_test
+  pipeline_configuration_syntax_and_apis_test.cc
+  ${TEXO_ROOT}/src/compiler/pass/pipeline_configuration_syntax_and_apis.cc
+  ${TEXO_ROOT}/src/compiler/pass/pass_pipeline_stage_taxonomy.cc)
+target_include_directories(texo_pipeline_configuration_syntax_and_apis_test PRIVATE ${TEXO_ROOT}/include)
+target_compile_features(texo_pipeline_configuration_syntax_and_apis_test PRIVATE cxx_std_20)
+target_compile_options(texo_pipeline_configuration_syntax_and_apis_test PRIVATE -Wall -Wextra -Werror)
+add_test(NAME texo_pipeline_configuration_syntax_and_apis_test COMMAND texo_pipeline_configuration_syntax_and_apis_test)
+
+add_executable(texo_custom_semantic_pass_api_test
+  custom_semantic_pass_api_test.cc
+  ${TEXO_ROOT}/src/compiler/pass/custom_semantic_pass_api.cc)
+target_include_directories(texo_custom_semantic_pass_api_test PRIVATE ${TEXO_ROOT}/include)
+target_compile_features(texo_custom_semantic_pass_api_test PRIVATE cxx_std_20)
+target_compile_options(texo_custom_semantic_pass_api_test PRIVATE -Wall -Wextra -Werror)
+target_compile_definitions(texo_custom_semantic_pass_api_test PRIVATE
+  TEXO_TEST_INCLUDE_ROOT="${TEXO_ROOT}/include")
+target_link_libraries(texo_custom_semantic_pass_api_test PRIVATE dl)
+add_test(NAME texo_custom_semantic_pass_api_test COMMAND texo_custom_semantic_pass_api_test)
+
+add_executable(texo_custom_planning_pass_api_test
+  custom_planning_pass_api_test.cc
+  ${TEXO_ROOT}/src/compiler/pass/custom_planning_pass_api.cc)
+target_include_directories(texo_custom_planning_pass_api_test PRIVATE ${TEXO_ROOT}/include)
+target_compile_features(texo_custom_planning_pass_api_test PRIVATE cxx_std_20)
+target_compile_options(texo_custom_planning_pass_api_test PRIVATE -Wall -Wextra -Werror)
+target_compile_definitions(texo_custom_planning_pass_api_test PRIVATE
+  TEXO_TEST_INCLUDE_ROOT="${TEXO_ROOT}/include")
+target_link_libraries(texo_custom_planning_pass_api_test PRIVATE dl)
+add_test(NAME texo_custom_planning_pass_api_test COMMAND texo_custom_planning_pass_api_test)
+
+add_executable(texo_custom_realization_pass_api_test
+  custom_realization_pass_api_test.cc
+  ${TEXO_ROOT}/src/compiler/pass/custom_realization_pass_api.cc)
+target_include_directories(texo_custom_realization_pass_api_test PRIVATE ${TEXO_ROOT}/include)
+target_compile_features(texo_custom_realization_pass_api_test PRIVATE cxx_std_20)
+target_compile_options(texo_custom_realization_pass_api_test PRIVATE -Wall -Wextra -Werror)
+target_compile_definitions(texo_custom_realization_pass_api_test PRIVATE
+  TEXO_TEST_INCLUDE_ROOT="${TEXO_ROOT}/include")
+target_link_libraries(texo_custom_realization_pass_api_test PRIVATE dl)
+add_test(NAME texo_custom_realization_pass_api_test COMMAND texo_custom_realization_pass_api_test)
+
+add_executable(texo_built_in_stage_replacement_test
+    built_in_stage_replacement_test.cc
+    ${TEXO_ROOT}/src/compiler/pass/built_in_stage_replacement.cc
+    ${TEXO_ROOT}/src/compiler/pass/pass_pipeline_stage_taxonomy.cc)
+target_include_directories(texo_built_in_stage_replacement_test PRIVATE ${TEXO_ROOT}/include)
+add_test(NAME texo_built_in_stage_replacement_test COMMAND texo_built_in_stage_replacement_test)
+
+add_executable(texo_operation_attribute_registration_test
+    operation_attribute_registration_test.cc
+    ${TEXO_ROOT}/src/compiler/pass/operation_attribute_registration.cc)
+target_include_directories(texo_operation_attribute_registration_test PRIVATE ${TEXO_ROOT}/include)
+add_test(NAME texo_operation_attribute_registration_test COMMAND texo_operation_attribute_registration_test)
+
+add_executable(texo_unknown_extension_preservation_and_forwarding_test
+    unknown_extension_preservation_and_forwarding_test.cc
+    ${TEXO_ROOT}/src/compiler/pass/unknown_extension_preservation_and_forwarding.cc)
+target_include_directories(texo_unknown_extension_preservation_and_forwarding_test PRIVATE ${TEXO_ROOT}/include)
+add_test(NAME texo_unknown_extension_preservation_and_forwarding_test COMMAND texo_unknown_extension_preservation_and_forwarding_test)
+
+add_executable(texo_extension_capability_negotiation_test
+    extension_capability_negotiation_test.cc
+    ${TEXO_ROOT}/src/compiler/pass/extension_capability_negotiation.cc
+    ${TEXO_ROOT}/src/compiler/pass/unknown_extension_preservation_and_forwarding.cc)
+target_include_directories(texo_extension_capability_negotiation_test PRIVATE ${TEXO_ROOT}/include)
+add_test(NAME texo_extension_capability_negotiation_test COMMAND texo_extension_capability_negotiation_test)
+
+add_executable(texo_compiler_prelude_regions_test
+    compiler_prelude_regions_test.cc
+    ${TEXO_ROOT}/src/compiler/pass/compiler_prelude_regions.cc)
+target_include_directories(texo_compiler_prelude_regions_test PRIVATE ${TEXO_ROOT}/include)
+add_test(NAME texo_compiler_prelude_regions_test COMMAND texo_compiler_prelude_regions_test)
+
+add_executable(texo_compile_same_translation_unit_transforms_in_an_early_hos_test
+    compile_same_translation_unit_transforms_in_an_early_hos_test.cc
+    ${TEXO_ROOT}/src/compiler/pass/compile_same_translation_unit_transforms_in_an_early_hos.cc)
+target_include_directories(texo_compile_same_translation_unit_transforms_in_an_early_hos_test PRIVATE ${TEXO_ROOT}/include)
+target_link_libraries(texo_compile_same_translation_unit_transforms_in_an_early_hos_test PRIVATE dl)
+add_test(NAME texo_compile_same_translation_unit_transforms_in_an_early_hos_test COMMAND texo_compile_same_translation_unit_transforms_in_an_early_hos_test)
+
+add_executable(texo_bounded_meta_generation_and_staging_test
+    bounded_meta_generation_and_staging_test.cc
+    ${TEXO_ROOT}/src/compiler/pass/bounded_meta_generation_and_staging.cc)
+target_include_directories(texo_bounded_meta_generation_and_staging_test PRIVATE ${TEXO_ROOT}/include)
+add_test(NAME texo_bounded_meta_generation_and_staging_test COMMAND texo_bounded_meta_generation_and_staging_test)
+
+add_executable(texo_cache_compiled_transforms_safely_test
+    cache_compiled_transforms_safely_test.cc
+    ${TEXO_ROOT}/src/compiler/pass/cache_compiled_transforms_safely.cc)
+target_include_directories(texo_cache_compiled_transforms_safely_test PRIVATE ${TEXO_ROOT}/include)
+add_test(NAME texo_cache_compiled_transforms_safely_test COMMAND texo_cache_compiled_transforms_safely_test)
+
+add_executable(texo_transform_sandbox_policy_test
+    transform_sandbox_policy_test.cc
+    ${TEXO_ROOT}/src/compiler/pass/transform_sandbox_policy.cc)
+target_include_directories(texo_transform_sandbox_policy_test PRIVATE ${TEXO_ROOT}/include)
+add_test(NAME texo_transform_sandbox_policy_test COMMAND texo_transform_sandbox_policy_test)
+
+add_executable(texo_integrate_extension_pass_provenance_test
+    integrate_extension_pass_provenance_test.cc
+    ${TEXO_ROOT}/src/compiler/pass/integrate_extension_pass_provenance.cc
+    ${TEXO_ROOT}/src/compiler/pass/pass_pipeline_stage_taxonomy.cc)
+target_include_directories(texo_integrate_extension_pass_provenance_test PRIVATE ${TEXO_ROOT}/include)
+add_test(NAME texo_integrate_extension_pass_provenance_test COMMAND texo_integrate_extension_pass_provenance_test)
+
+add_executable(texo_same_compilation_self_transformation_test
+    same_compilation_self_transformation_test.cc
+    ${TEXO_ROOT}/src/compiler/pass/same_compilation_self_transformation.cc
+    ${TEXO_ROOT}/src/compiler/pass/cache_compiled_transforms_safely.cc
+    ${TEXO_ROOT}/src/compiler/pass/compile_same_translation_unit_transforms_in_an_early_hos.cc)
+target_include_directories(texo_same_compilation_self_transformation_test PRIVATE ${TEXO_ROOT}/include)
+target_link_libraries(texo_same_compilation_self_transformation_test PRIVATE dl)
+add_test(NAME texo_same_compilation_self_transformation_test COMMAND texo_same_compilation_self_transformation_test)
+
+add_executable(texo_open_compiler_extension_surface_test
+    open_compiler_extension_surface_test.cc
+    ${TEXO_ROOT}/src/compiler/pass/open_compiler_extension_surface.cc)
+target_include_directories(texo_open_compiler_extension_surface_test PRIVATE ${TEXO_ROOT}/include)
+target_compile_definitions(texo_open_compiler_extension_surface_test PRIVATE
+    TEXO_TEST_INCLUDE_ROOT="${TEXO_ROOT}/include")
+add_test(NAME texo_open_compiler_extension_surface_test COMMAND texo_open_compiler_extension_surface_test)

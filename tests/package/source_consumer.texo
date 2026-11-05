@@ -1,0 +1,2 @@
+#pragma texo
+int main() { return 0; }

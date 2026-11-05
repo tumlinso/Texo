@@ -1,0 +1,5 @@
+CXX ?= c++
+CXXFLAGS += $(shell pkg-config --cflags texo)
+LDLIBS += $(shell pkg-config --libs texo)
+consumer: consumer.cc
+	$(CXX) $(CXXFLAGS) $< $(LDLIBS) -o $@

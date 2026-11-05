@@ -1,0 +1,2 @@
+set(TEXO_REFERENCE_PROFILES homo_sapiens_test_v1 mus_musculus_test_v1 rattus_norvegicus_test_v1)
+set(TEXO_REFERENCE_PROFILES_AUTO_SELECT OFF)

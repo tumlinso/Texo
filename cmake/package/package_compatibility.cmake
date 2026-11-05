@@ -1,0 +1,6 @@
+set(TEXO_RESOURCE_TREE_PATTERN "share/texo/<compiler-major>.<texo_ir-major>")
+function(texo_require_resource_pair compiler_major texo_ir_major resource_compiler resource_texo_ir)
+  if(NOT compiler_major STREQUAL resource_compiler OR NOT texo_ir_major STREQUAL resource_texo_ir)
+    message(FATAL_ERROR "Texo compiler/resource version mismatch: compiler ${compiler_major}.${texo_ir_major}, resources ${resource_compiler}.${resource_texo_ir}")
+  endif()
+endfunction()

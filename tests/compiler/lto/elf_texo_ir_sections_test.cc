@@ -1,0 +1,4 @@
+#include <Texo/lto/elf_texo_ir_sections_v1.hh>
+#include <cassert>
+using namespace texo::lto::v1;
+int main(){elf_texo_ir_section_v1 s{".texo.texo_ir.v2","schema=2","__texo_ir",{1,2,3},elf_texo_ir_compression_v1::zstd,false,true};auto a=emit_elf_texo_ir_section_v1(s),b=emit_elf_texo_ir_section_v1(s);assert(a==b&&!a.empty());assert(a[0]=='T'&&a[1]=='X'&&a[2]=='E'&&a[3]=='L'&&a[4]=='F'&&a[5]=='2');auto x=extract_elf_texo_ir_section_v1(a);assert(x&&x->payload==s.payload&&!x->allocatable);assert(strip_elf_runtime_symbols_v1(a)==a);auto old=a;old[0]='C';old[1]='E';old[2]='E';old[3]='L';old[4]='F';old[5]='1';assert(!extract_elf_texo_ir_section_v1(old));s.name=".texo.texoir.v1";assert(emit_elf_texo_ir_section_v1(s).empty());s.name=".texo.texo_ir.v2";s.retain_when_stripped=false;assert(strip_elf_runtime_symbols_v1(emit_elf_texo_ir_section_v1(s)).empty());}

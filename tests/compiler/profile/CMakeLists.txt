@@ -1,0 +1,118 @@
+cmake_minimum_required(VERSION 3.20)
+project(texo_compiler_profile_tests LANGUAGES C CXX)
+
+enable_testing()
+
+get_filename_component(TEXO_ROOT "${CMAKE_CURRENT_LIST_DIR}/../../.." ABSOLUTE)
+
+add_executable(texo_profile_artifact_charter_and_name_test
+    profile_artifact_charter_and_name_test.cc
+    "${TEXO_ROOT}/src/compiler/profile/profile_artifact_charter_and_name.cc")
+target_include_directories(texo_profile_artifact_charter_and_name_test PRIVATE "${TEXO_ROOT}/include")
+target_compile_features(texo_profile_artifact_charter_and_name_test PRIVATE cxx_std_20)
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    target_compile_options(texo_profile_artifact_charter_and_name_test PRIVATE -Wall -Wextra -Werror)
+endif()
+add_test(NAME texo_profile_artifact_charter_and_name_test COMMAND texo_profile_artifact_charter_and_name_test)
+
+add_executable(texo_profile_format_v2_roundtrip_test
+    profile_format_v2_roundtrip_test.cc
+    "${TEXO_ROOT}/src/compiler/profile/profile_artifact_charter_and_name.cc"
+    "${TEXO_ROOT}/src/compiler/profile/sectioned_binary_profile_storage.cc")
+target_include_directories(texo_profile_format_v2_roundtrip_test PRIVATE "${TEXO_ROOT}/include")
+target_compile_features(texo_profile_format_v2_roundtrip_test PRIVATE cxx_std_20)
+if(TEXO_STRICT_WARNINGS)
+    target_compile_options(texo_profile_format_v2_roundtrip_test PRIVATE -Wall -Wextra -Werror)
+endif()
+add_test(NAME texo_profile_format_v2_roundtrip_test COMMAND texo_profile_format_v2_roundtrip_test)
+
+add_executable(texo_sectioned_binary_profile_storage_test
+    sectioned_binary_profile_storage_test.cc
+    "${TEXO_ROOT}/src/compiler/profile/profile_artifact_charter_and_name.cc"
+    "${TEXO_ROOT}/src/compiler/profile/sectioned_binary_profile_storage.cc")
+target_include_directories(texo_sectioned_binary_profile_storage_test PRIVATE "${TEXO_ROOT}/include")
+target_compile_features(texo_sectioned_binary_profile_storage_test PRIVATE cxx_std_20)
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    target_compile_options(texo_sectioned_binary_profile_storage_test PRIVATE -Wall -Wextra -Werror)
+endif()
+add_test(NAME texo_sectioned_binary_profile_storage_test COMMAND texo_sectioned_binary_profile_storage_test)
+
+add_executable(texo_named_profile_environments_and_alternatives_test
+    named_profile_environments_and_alternatives_test.cc
+    "${TEXO_ROOT}/src/compiler/profile/named_profile_environments_and_alternatives.cc")
+target_include_directories(texo_named_profile_environments_and_alternatives_test PRIVATE "${TEXO_ROOT}/include")
+target_compile_features(texo_named_profile_environments_and_alternatives_test PRIVATE cxx_std_20)
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    target_compile_options(texo_named_profile_environments_and_alternatives_test PRIVATE -Wall -Wextra -Werror)
+endif()
+add_test(NAME texo_named_profile_environments_and_alternatives_test COMMAND texo_named_profile_environments_and_alternatives_test)
+
+add_executable(texo_represent_domain_axis_relation_and_support_evidence_test
+    represent_domain_axis_relation_and_support_evidence_test.cc
+    "${TEXO_ROOT}/src/compiler/profile/represent_domain_axis_relation_and_support_evidence.cc")
+target_include_directories(texo_represent_domain_axis_relation_and_support_evidence_test PRIVATE "${TEXO_ROOT}/include")
+target_compile_features(texo_represent_domain_axis_relation_and_support_evidence_test PRIVATE cxx_std_20)
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    target_compile_options(texo_represent_domain_axis_relation_and_support_evidence_test PRIVATE -Wall -Wextra -Werror)
+endif()
+add_test(NAME texo_represent_domain_axis_relation_and_support_evidence_test COMMAND texo_represent_domain_axis_relation_and_support_evidence_test)
+
+add_executable(texo_represent_value_and_numerical_evidence_test
+    represent_value_and_numerical_evidence_test.cc
+    "${TEXO_ROOT}/src/compiler/profile/represent_value_and_numerical_evidence.cc")
+target_include_directories(texo_represent_value_and_numerical_evidence_test PRIVATE "${TEXO_ROOT}/include")
+target_compile_features(texo_represent_value_and_numerical_evidence_test PRIVATE cxx_std_20)
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    target_compile_options(texo_represent_value_and_numerical_evidence_test PRIVATE -Wall -Wextra -Werror)
+endif()
+add_test(NAME texo_represent_value_and_numerical_evidence_test COMMAND texo_represent_value_and_numerical_evidence_test)
+
+add_executable(texo_represent_mutability_recurrence_and_reuse_evidence_test represent_mutability_recurrence_and_reuse_evidence_test.cc
+    "${TEXO_ROOT}/src/compiler/profile/represent_mutability_recurrence_and_reuse_evidence.cc")
+target_include_directories(texo_represent_mutability_recurrence_and_reuse_evidence_test PRIVATE "${TEXO_ROOT}/include")
+target_compile_features(texo_represent_mutability_recurrence_and_reuse_evidence_test PRIVATE cxx_std_20)
+add_test(NAME texo_represent_mutability_recurrence_and_reuse_evidence_test COMMAND texo_represent_mutability_recurrence_and_reuse_evidence_test)
+add_executable(texo_represent_evidence_provenance_and_revision_test represent_evidence_provenance_and_revision_test.cc
+ "${TEXO_ROOT}/src/compiler/profile/represent_evidence_provenance_and_revision.cc")
+target_include_directories(texo_represent_evidence_provenance_and_revision_test PRIVATE "${TEXO_ROOT}/include")
+target_compile_features(texo_represent_evidence_provenance_and_revision_test PRIVATE cxx_std_20)
+add_test(NAME texo_represent_evidence_provenance_and_revision_test COMMAND texo_represent_evidence_provenance_and_revision_test)
+add_executable(texo_build_pointer_plus_count_profile_ingestion_apis_test build_pointer_plus_count_profile_ingestion_apis_test.cc ingestion_c_producer.c
+ "${TEXO_ROOT}/src/compiler/profile/build_pointer_plus_count_profile_ingestion_apis.cc")
+target_include_directories(texo_build_pointer_plus_count_profile_ingestion_apis_test PRIVATE "${TEXO_ROOT}/include")
+target_compile_features(texo_build_pointer_plus_count_profile_ingestion_apis_test PRIVATE cxx_std_20)
+add_test(NAME texo_build_pointer_plus_count_profile_ingestion_apis_test COMMAND texo_build_pointer_plus_count_profile_ingestion_apis_test)
+add_executable(texo_streaming_profile_builders_test streaming_profile_builders_test.cc "${TEXO_ROOT}/src/compiler/profile/streaming_profile_builders.cc")
+target_include_directories(texo_streaming_profile_builders_test PRIVATE "${TEXO_ROOT}/include")
+target_compile_features(texo_streaming_profile_builders_test PRIVATE cxx_std_20)
+add_test(NAME texo_streaming_profile_builders_test COMMAND texo_streaming_profile_builders_test)
+add_executable(texo_profile_selection_and_binding_test profile_selection_and_binding_test.cc "${TEXO_ROOT}/src/compiler/profile/profile_selection_and_binding.cc" "${TEXO_ROOT}/src/compiler/profile/named_profile_environments_and_alternatives.cc")
+target_include_directories(texo_profile_selection_and_binding_test PRIVATE "${TEXO_ROOT}/include")
+target_compile_features(texo_profile_selection_and_binding_test PRIVATE cxx_std_20)
+add_test(NAME texo_profile_selection_and_binding_test COMMAND texo_profile_selection_and_binding_test)
+add_executable(texo_semantic_transfer_functions_test semantic_transfer_functions_test.cc "${TEXO_ROOT}/src/compiler/profile/semantic_transfer_functions.cc")
+target_include_directories(texo_semantic_transfer_functions_test PRIVATE "${TEXO_ROOT}/include")
+target_compile_features(texo_semantic_transfer_functions_test PRIVATE cxx_std_20)
+add_test(NAME texo_semantic_transfer_functions_test COMMAND texo_semantic_transfer_functions_test)
+add_executable(texo_bounded_branch_alternatives_and_joins_test bounded_branch_alternatives_and_joins_test.cc "${TEXO_ROOT}/src/compiler/profile/bounded_branch_alternatives_and_joins.cc")
+target_include_directories(texo_bounded_branch_alternatives_and_joins_test PRIVATE "${TEXO_ROOT}/include")
+target_compile_features(texo_bounded_branch_alternatives_and_joins_test PRIVATE cxx_std_20)
+add_test(NAME texo_bounded_branch_alternatives_and_joins_test COMMAND texo_bounded_branch_alternatives_and_joins_test)
+add_executable(texo_profile_state_attachment_to_semantic_ir_test profile_state_attachment_to_semantic_ir_test.cc "${TEXO_ROOT}/src/compiler/profile/profile_state_attachment_to_semantic_ir.cc")
+target_include_directories(texo_profile_state_attachment_to_semantic_ir_test PRIVATE "${TEXO_ROOT}/include")
+target_compile_features(texo_profile_state_attachment_to_semantic_ir_test PRIVATE cxx_std_20)
+add_test(NAME texo_profile_state_attachment_to_semantic_ir_test COMMAND texo_profile_state_attachment_to_semantic_ir_test)
+add_executable(texo_profile_inspection_and_diff_test profile_inspection_and_diff_test.cc "${TEXO_ROOT}/src/compiler/profile/profile_inspection_and_diff.cc")
+target_include_directories(texo_profile_inspection_and_diff_test PRIVATE "${TEXO_ROOT}/include")
+target_compile_features(texo_profile_inspection_and_diff_test PRIVATE cxx_std_20)
+add_test(NAME texo_profile_inspection_and_diff_test COMMAND texo_profile_inspection_and_diff_test)
+
+add_executable(texo_profile_aware_compile_benchmark_test
+    profile_aware_compile_benchmark_test.cc
+    "${TEXO_ROOT}/src/compiler/profile/profile_aware_compile_benchmark.cc")
+target_include_directories(texo_profile_aware_compile_benchmark_test PRIVATE "${TEXO_ROOT}/include")
+target_compile_features(texo_profile_aware_compile_benchmark_test PRIVATE cxx_std_20)
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    target_compile_options(texo_profile_aware_compile_benchmark_test PRIVATE -Wall -Wextra -Werror)
+endif()
+add_test(NAME texo_profile_aware_compile_benchmark_test COMMAND texo_profile_aware_compile_benchmark_test)

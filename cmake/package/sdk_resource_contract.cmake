@@ -1,0 +1,5 @@
+include(GNUInstallDirs)
+set(TEXO_SDK_RESOURCE_VERSION "2.2")
+set(TEXO_SDK_RESOURCE_DIR "${CMAKE_INSTALL_DATADIR}/texo/${TEXO_SDK_RESOURCE_VERSION}")
+set(TEXO_SDK_PROFILE_REQUIRED ON)
+set(TEXO_SDK_ACCEPTANCE_MODES ordinary_cxx cell standalone_texo_ir direct_libtexo custom_pass cpu conditional_nvcc)

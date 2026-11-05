@@ -1,0 +1,13 @@
+@PACKAGE_INIT@
+include("${CMAKE_CURRENT_LIST_DIR}/TexoTargets.cmake")
+set(Texo_VERSION "@PROJECT_VERSION@")
+set(Texo_RESOURCE_DIR "@PACKAGE_TEXO_RESOURCE_INSTALL_DIR@")
+set(Texo_STDLIB_DIR "${Texo_RESOURCE_DIR}/stdlib")
+set(Texo_PROFILE_DIR "${Texo_RESOURCE_DIR}/profiles")
+set(Texo_IR_FORMAT_MAJOR 2)
+set(Texo_PROFILE_FORMAT_MAJOR 2)
+set(Texo_HAS_HOST_TOOLS TRUE)
+set(Texo_HAS_FRONTEND TRUE)
+set(Texo_HAS_COMPILER FALSE)
+set(Texo_HAS_CUDA_BACKEND FALSE)
+check_required_components(Texo)

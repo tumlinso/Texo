@@ -1,0 +1,96 @@
+{
+  "date": "2026-11-05",
+  "status": "extraction-applied",
+  "source_commit": "bac859c1b731f9d5ca6f0371d414886764105b58",
+  "compiler_files_transferred": 2189,
+  "native_files_rehomed": 66,
+  "integration_files_updated": 78,
+  "historical_records_byte_preserved": 536,
+  "unaccounted_removals": 0,
+  "preservation": {
+    "unrelated_files_unchanged": true,
+    "unexpected_changes": [],
+    "staged_entries_unchanged": true,
+    "protected_documents_unchanged": true
+  },
+  "audit": {
+    "status": "pass",
+    "errors": [],
+    "installs_checked": 2,
+    "archives_checked": 2
+  },
+  "checks": [
+    {
+      "name": "baseline-native-host",
+      "passed": 26
+    },
+    {
+      "name": "extracted-cellerator-host-nn-native-data",
+      "passed": 58
+    },
+    {
+      "name": "native-min",
+      "passed": 30
+    },
+    {
+      "name": "installed-wheel-modeling-numerical",
+      "run": 99,
+      "passed": 98,
+      "skipped": 1,
+      "failed": 0
+    },
+    {
+      "name": "texo-focused-host",
+      "passed": 65
+    },
+    {
+      "name": "relation-update-host",
+      "passed": 4
+    },
+    {
+      "name": "native-sdk-installed-consumer",
+      "passed": true
+    },
+    {
+      "name": "substrate-sdk-install",
+      "passed": true
+    },
+    {
+      "name": "texo-installed-consumer",
+      "passed": true
+    },
+    {
+      "name": "changed-cuda-translation-units",
+      "compiled": 4,
+      "architecture": "sm_70",
+      "cuda": "12.9",
+      "gpu_execution": false
+    },
+    {
+      "name": "geometry-preparation-targets",
+      "build_steps": 603,
+      "passed": true,
+      "gpu_execution": false
+    }
+  ],
+  "limitations": [
+    "Full Texo compiler/backend/native-spine integration remains incomplete; see docs/development.md.",
+    "No GPU workload, performance measurement, or biological qualification was run.",
+    "Project Control refused a task claim with workflow_task_already_active and no handle; existing authority was left untouched.",
+    "Two pre-existing CellShard documentation links remain unresolved."
+  ],
+  "local_recovery": ".extraction-recovery/20261105",
+  "local_experiment_evidence": {
+    "original": "bench/compiler",
+    "destination": "/home/tumlinson/Texo/.extraction-recovery/20261105/local-compiler-evidence/bench-compiler",
+    "files_preserved": 442,
+    "bytes_preserved": 2338449866,
+    "lock_in_use": false,
+    "method": "whole-directory-rename-without-content-or-permission-changes"
+  },
+  "publication": {
+    "cellerator_commit": "6f87d30c91562faa50861fffd34b782fe1229e64",
+    "scope": "Extraction only; earlier local edits and staged changes remain separate.",
+    "integration_hashes": "published_sha256 records the committed form of four files with earlier local edits."
+  }
+}

@@ -1,0 +1,4 @@
+#include <Texo/lto/lto_v1.hh>
+#include <cassert>
+using namespace texo::lto::v1;
+int main(){static_assert(companion_artifact_version_v1==2u);static_assert(object_texo_ir_contract_version_v1==2u);static_assert(texo_lto_contract_version_v1==2u);for(auto f:{object_format_v1::elf,object_format_v1::mach_o,object_format_v1::coff,object_format_v1::archive,object_format_v1::sidecar}){texo_ir_companion_artifact_v1 a;a.format=f;a.semantic_summary={1,1};a.planning_summary={1,2};a.profile_reference={1,3};a.toolchain={1,4};a.content_hash[0]=1;a.fields={{{2,1},"field"}};a.provenance={{{3,1},{4,1}}};a.placement=f==object_format_v1::sidecar?"file.texoir":"section";assert(a.version==2u&&validate_companion_artifact_v1(a)==companion_status_v1::valid);a.version=1u;assert(validate_companion_artifact_v1(a)==companion_status_v1::unsupported_version);a.version=companion_artifact_version_v1;a.content_hash={};assert(validate_companion_artifact_v1(a)==companion_status_v1::missing_hash);}}

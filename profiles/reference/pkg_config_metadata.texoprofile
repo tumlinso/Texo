@@ -1,0 +1,3 @@
+package.lightweight = "pkg-config"
+package.module = "texo"
+package.private_build_paths = false

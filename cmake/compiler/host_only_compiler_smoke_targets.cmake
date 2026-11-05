@@ -1,0 +1,12 @@
+include_guard(GLOBAL)
+
+function(texo_create_host_only_compiler_smoke_targets)
+    set(smoke_source "${CMAKE_CURRENT_FUNCTION_LIST_DIR}/../../tests/compiler/build/host_only_compiler_smoke_targets_test.cc")
+    foreach(component IN ITEMS texo_ir profile source diagnostics daemon_protocol)
+        set(target "texo_compiler_smoke_${component}")
+        add_executable(${target} "${smoke_source}")
+        target_compile_definitions(${target} PRIVATE TEXO_SMOKE_COMPONENT="${component}")
+        target_link_libraries(${target} PRIVATE Texo::CompilerTooling)
+        texo_set_compiler_implementation_standard(${target})
+    endforeach()
+endfunction()

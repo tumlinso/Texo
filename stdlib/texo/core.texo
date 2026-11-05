@@ -1,0 +1,9 @@
+#pragma texo
+
+// Installed stable umbrella for the allocation-free Texo source library.
+#include "../core.texo"
+#include "../builders.texo"
+#include "../operations.texo"
+#include "../profile.texo"
+#include "../planning.texo"
+#include "../reflection.texo"

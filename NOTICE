@@ -1,0 +1,10 @@
+Texo contains language/compiler source and research records extracted from
+Cellerator (https://github.com/tumlinso/Cellerator), source revision
+bac859c1b731f9d5ca6f0371d414886764105b58, together with the local source edits
+captured for the 2026-11-05 extraction. The migration manifest records the
+original paths and content hashes.
+
+Cellerator's captured pyproject.toml declares Apache-2.0 licensing. No root
+LICENSE or NOTICE file was present in that captured source. Resource-specific
+licenses and attribution carried in the source and historical records remain
+with those resources.

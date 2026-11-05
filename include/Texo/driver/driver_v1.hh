@@ -1,0 +1,12 @@
+#pragma once
+
+// Stable Part One driver contract. Semantic analysis remains independent of
+// the selected downstream backend; ordinary C++ takes the exact passthrough.
+#include <Texo/driver/compilation_database_and_dependency_file_behavior_v1.hh>
+#include <Texo/driver/temporary_artifact_and_cache_policy_v1.hh>
+#include <Texo/driver/compiler_invocation_and_action_graph_v1.hh>
+#include <Texo/driver/downstream_compiler_invocation_v1.hh>
+#include <Texo/driver/forward_and_remap_downstream_diagnostics_v1.hh>
+#include <Texo/driver/plain_c_passthrough_planning_v1.hh>
+#include <Texo/driver/response_file_and_argv_normalization_contracts_v1.hh>
+#include <Texo/driver/track_downstream_c_language_and_abi_mode_v1.hh>

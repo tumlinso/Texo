@@ -1,0 +1,77 @@
+cmake_minimum_required(VERSION 3.20)
+project(texo_i02_tests LANGUAGES CXX)
+enable_testing()
+set(CMAKE_CXX_STANDARD 20)
+get_filename_component(TEXO_ROOT "${CMAKE_CURRENT_LIST_DIR}/../../.." ABSOLUTE)
+add_executable(texo_texo_syntax_completion_test texo_syntax_completion_test.cc ${TEXO_ROOT}/src/compiler/tooling/texo/texo_syntax_completion.cc)
+target_include_directories(texo_texo_syntax_completion_test PRIVATE ${TEXO_ROOT})
+add_executable(ce_ccp1_i02_001 ALIAS texo_texo_syntax_completion_test)
+add_test(NAME ce_ccp1_i02_001 COMMAND texo_texo_syntax_completion_test)
+add_executable(texo_biological_type_and_relation_hover_test biological_type_and_relation_hover_test.cc ${TEXO_ROOT}/src/compiler/tooling/texo/biological_type_and_relation_hover.cc)
+target_include_directories(texo_biological_type_and_relation_hover_test PRIVATE ${TEXO_ROOT})
+add_executable(ce_ccp1_i02_002 ALIAS texo_biological_type_and_relation_hover_test)
+add_test(NAME ce_ccp1_i02_002 COMMAND texo_biological_type_and_relation_hover_test)
+add_executable(texo_field_ownership_and_effect_views_test field_ownership_and_effect_views_test.cc ${TEXO_ROOT}/src/compiler/tooling/texo/field_ownership_and_effect_views.cc)
+target_include_directories(texo_field_ownership_and_effect_views_test PRIVATE ${TEXO_ROOT})
+add_executable(ce_ccp1_i02_003 ALIAS texo_field_ownership_and_effect_views_test)
+add_test(NAME ce_ccp1_i02_003 COMMAND texo_field_ownership_and_effect_views_test)
+add_executable(texo_profile_state_at_cursor_test profile_state_at_cursor_test.cc ${TEXO_ROOT}/src/compiler/tooling/texo/profile_state_at_cursor.cc)
+target_include_directories(texo_profile_state_at_cursor_test PRIVATE ${TEXO_ROOT})
+add_executable(ce_ccp1_i02_004 ALIAS texo_profile_state_at_cursor_test)
+add_test(NAME ce_ccp1_i02_004 COMMAND texo_profile_state_at_cursor_test)
+add_executable(texo_generation_and_staleness_queries_test generation_and_staleness_queries_test.cc ${TEXO_ROOT}/src/compiler/tooling/texo/generation_and_staleness_queries.cc)
+target_include_directories(texo_generation_and_staleness_queries_test PRIVATE ${TEXO_ROOT})
+add_executable(ce_ccp1_i02_005 ALIAS texo_generation_and_staleness_queries_test)
+add_test(NAME ce_ccp1_i02_005 COMMAND texo_generation_and_staleness_queries_test)
+add_executable(texo_semantic_ir_at_cursor_test semantic_ir_at_cursor_test.cc ${TEXO_ROOT}/src/compiler/tooling/texo/semantic_ir_at_cursor.cc)
+target_include_directories(texo_semantic_ir_at_cursor_test PRIVATE ${TEXO_ROOT})
+add_executable(ce_ccp1_i02_006 ALIAS texo_semantic_ir_at_cursor_test)
+add_test(NAME ce_ccp1_i02_006 COMMAND texo_semantic_ir_at_cursor_test)
+add_executable(texo_planning_ir_and_candidate_views_test planning_ir_and_candidate_views_test.cc ${TEXO_ROOT}/src/compiler/tooling/texo/planning_ir_and_candidate_views.cc)
+target_include_directories(texo_planning_ir_and_candidate_views_test PRIVATE ${TEXO_ROOT})
+add_executable(ce_ccp1_i02_007 ALIAS texo_planning_ir_and_candidate_views_test)
+add_test(NAME ce_ccp1_i02_007 COMMAND texo_planning_ir_and_candidate_views_test)
+add_executable(texo_realization_and_decomposition_visualization_test realization_and_decomposition_visualization_test.cc ${TEXO_ROOT}/src/compiler/tooling/texo/realization_and_decomposition_visualization.cc)
+target_include_directories(texo_realization_and_decomposition_visualization_test PRIVATE ${TEXO_ROOT})
+add_executable(ce_ccp1_i02_008 ALIAS texo_realization_and_decomposition_visualization_test)
+add_test(NAME ce_ccp1_i02_008 COMMAND texo_realization_and_decomposition_visualization_test)
+add_executable(texo_candidate_rationale_view_test candidate_rationale_view_test.cc ${TEXO_ROOT}/src/compiler/tooling/texo/candidate_rationale_view.cc)
+target_include_directories(texo_candidate_rationale_view_test PRIVATE ${TEXO_ROOT})
+add_executable(ce_ccp1_i02_009 ALIAS texo_candidate_rationale_view_test)
+add_test(NAME ce_ccp1_i02_009 COMMAND texo_candidate_rationale_view_test)
+add_executable(texo_opaque_barrier_and_missed_optimization_actions_test opaque_barrier_and_missed_optimization_actions_test.cc ${TEXO_ROOT}/src/compiler/tooling/texo/opaque_barrier_and_missed_optimization_actions.cc)
+target_include_directories(texo_opaque_barrier_and_missed_optimization_actions_test PRIVATE ${TEXO_ROOT})
+add_executable(ce_ccp1_i02_010 ALIAS texo_opaque_barrier_and_missed_optimization_actions_test)
+add_test(NAME ce_ccp1_i02_010 COMMAND texo_opaque_barrier_and_missed_optimization_actions_test)
+add_executable(texo_source_to_native_navigation_test source_to_native_navigation_test.cc ${TEXO_ROOT}/src/compiler/tooling/texo/source_to_native_navigation.cc)
+target_include_directories(texo_source_to_native_navigation_test PRIVATE ${TEXO_ROOT})
+add_executable(ce_ccp1_i02_011 ALIAS texo_source_to_native_navigation_test)
+add_test(NAME ce_ccp1_i02_011 COMMAND texo_source_to_native_navigation_test)
+add_executable(texo_inline_texo_ir_diagnostics_and_completion_test inline_texo_ir_diagnostics_and_completion_test.cc ${TEXO_ROOT}/src/compiler/tooling/texo/inline_texo_ir_diagnostics_and_completion.cc)
+target_include_directories(texo_inline_texo_ir_diagnostics_and_completion_test PRIVATE ${TEXO_ROOT})
+add_executable(ce_ccp1_i02_012 ALIAS texo_inline_texo_ir_diagnostics_and_completion_test)
+add_test(NAME ce_ccp1_i02_012 COMMAND texo_inline_texo_ir_diagnostics_and_completion_test)
+add_executable(texo_benchmark_advanced_semantic_queries_test benchmark_advanced_semantic_queries_test.cc
+  ${TEXO_ROOT}/src/compiler/tooling/texo/benchmark_advanced_semantic_queries.cc
+  ${TEXO_ROOT}/src/compiler/tooling/texo/texo_syntax_completion.cc
+  ${TEXO_ROOT}/src/compiler/tooling/texo/profile_state_at_cursor.cc
+  ${TEXO_ROOT}/src/compiler/tooling/texo/candidate_rationale_view.cc
+  ${TEXO_ROOT}/src/compiler/tooling/texo/semantic_ir_at_cursor.cc
+  ${TEXO_ROOT}/src/compiler/tooling/texo/realization_and_decomposition_visualization.cc
+  ${TEXO_ROOT}/src/compiler/tooling/texo/source_to_native_navigation.cc)
+target_include_directories(texo_benchmark_advanced_semantic_queries_test PRIVATE ${TEXO_ROOT})
+add_executable(ce_ccp1_i02_013 ALIAS texo_benchmark_advanced_semantic_queries_test)
+add_test(NAME ce_ccp1_i02_013 COMMAND texo_benchmark_advanced_semantic_queries_test)
+add_executable(texo_texod_compatibility_acceptance_test texod_compatibility_acceptance_test.cc
+  ${TEXO_ROOT}/src/compiler/tooling/texo/texod_compatibility_acceptance.cc
+  ${TEXO_ROOT}/src/compiler/tooling/texo/texo_syntax_completion.cc
+  ${TEXO_ROOT}/src/compiler/tooling/texo/biological_type_and_relation_hover.cc
+  ${TEXO_ROOT}/src/compiler/tooling/texo/profile_state_at_cursor.cc
+  ${TEXO_ROOT}/src/compiler/tooling/texo/generation_and_staleness_queries.cc
+  ${TEXO_ROOT}/src/compiler/tooling/texo/semantic_ir_at_cursor.cc
+  ${TEXO_ROOT}/src/compiler/tooling/texo/candidate_rationale_view.cc
+  ${TEXO_ROOT}/src/compiler/tooling/texo/realization_and_decomposition_visualization.cc
+  ${TEXO_ROOT}/src/compiler/tooling/texo/source_to_native_navigation.cc)
+target_include_directories(texo_texod_compatibility_acceptance_test PRIVATE ${TEXO_ROOT} ${TEXO_ROOT}/include)
+add_executable(ce_ccp1_i02_014 ALIAS texo_texod_compatibility_acceptance_test)
+add_test(NAME ce_ccp1_i02_014 COMMAND texo_texod_compatibility_acceptance_test)

@@ -1,0 +1,12 @@
+{
+  "format": "texo-stdlib-manifest-v2",
+  "compiler_major": 2,
+  "texo_ir_major": 2,
+  "profile_required": true,
+  "files": [
+    {
+      "path": "texo/core.texo",
+      "sha256": "d625d84fd1662f1f0c57154c4c68335566b12f87b23a6d6ba9866b83186e4385"
+    }
+  ]
+}
